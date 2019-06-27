@@ -1,0 +1,34 @@
+{
+    "name":"edovateAPI",
+    "version":"1.0.0",
+    "location":"",
+    "author":"You",
+    "slug":"edovateapi",
+    "createPackageDirectory":false,
+    "type":"mvc",
+    "homepage":"https://github.com/coldbox-templates/rest-hmvc",
+    "documentation":"https://github.com/coldbox-templates/rest-hmvc",
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/coldbox-templates/rest-hmvc"
+    },
+    "bugs":"https://github.com/coldbox-templates/rest-hmvc/issues",
+    "shortDescription":"A modular API RESTFul template",
+    "contributors":[],
+    "ignore":[],
+    "devDependencies":{
+        "relax":"^3.1.0",
+        "testbox":"^3.0.0"
+    },
+    "installPaths":{
+        "coldbox":"coldbox",
+        "relax":"modules/relax/",
+        "testbox":"testbox",
+        "route-visualizer":"modules/route-visualizer/"
+    },
+    "dependencies":{
+        "coldbox":"^5.0.0",
+        "route-visualizer":"^1.2.0+4"
+    },
+    "scripts":{}
+}

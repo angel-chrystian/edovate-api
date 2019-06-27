@@ -1,0 +1,21 @@
+{
+    "name":"edovateAPI",
+    "web":{
+        "http":{
+            "port":"8000"
+        },
+        "host":"edovate-api.local",
+        "rewrites":{
+            "enable":"true"
+        }
+    },
+    "app":{
+        "cfengine":"adobe@2016"
+    },
+    "console":"true",
+    "jvm":{
+        "heapSize":512,
+        "minHeapSize":256,
+        "args":"-Dfile.encoding=utf8"
+    }
+}
