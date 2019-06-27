@@ -16,34 +16,15 @@ component{
 		});
 
 		// Companies resource
-		route( "/api/company/:parentID-numeric" )
+		route( "/companies/:companyID-numeric" )
 		  .withAction({
-		  	GET = 'view',
+		  	GET = 'getCompany',
 		  	POST = 'save',
 		  	PUT = 'save',
-		  	DELTE = 'remove'
+		  	DELETE = 'remove'
 		  })
-		  .toHandler( "parents" );
-    route( "/api/company/" )
-      .withAction({
-        GET = 'list'
-      })
-      .toHandler( "parents" );
+		  .toHandler( "companies" );
 
-    // Students resource
-    route( "/api/student/:studentID-numeric" )
-      .withAction({
-        GET = 'view',
-        POST = 'save',
-        PUT = 'save',
-        DELTE = 'remove'
-      })
-      .toHandler( "students" );
-    route( "/api/student/" )
-      .withAction({
-        GET = 'list'
-      })
-      .toHandler( "students" );
 
 		// Conventions based routing
 		route( ":handler/:action?" ).end();
