@@ -1,7 +1,7 @@
 /**
  * My RESTFul Event Handler which inherits from the module `api`
  */
-component extends="api.handlers.BaseHandler"{
+component extends="BaseHandler"{
 	property name="companyService" inject="services.companyService";
 
 	// OPTIONAL HANDLER PROPERTIES

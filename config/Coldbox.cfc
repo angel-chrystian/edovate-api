@@ -6,7 +6,7 @@
 		// coldbox directives
 		coldbox = {
 			//Application Setup
-			appName 				= getSystemSetting( "APPNAME", "Your app name here" ),
+			appName 				= getSystemSetting( "APPNAME", "Edovate API" ),
 			eventName 				= "event",
 
 			//Auto-deserialization of JSON Payloads
@@ -17,7 +17,7 @@
 			handlersIndexAutoReload = true,
 
 			//Implicit Events
-			defaultEvent			= "v1:companies.index",
+			defaultEvent			= "companies.index",
 			requestStartHandler		= "",
 			requestEndHandler		= "",
 			applicationStartHandler = "",
