@@ -27,8 +27,8 @@ component extends="BaseHandler"{
  * Returns a Company
  **/
   public any function getCompany( event, rc, prc ){
-    if( event.valueExists( 'id' ) && isNumeric( rc.id ) ){
-    	local.result = companyService.getCompany( rc.id, true );
+    if( event.valueExists( 'companyID' ) && isNumeric( rc.companyID ) ){
+    	local.result = companyService.getCompany( rc.companyID, true );
     	prc.response.setData( local.result );
     }
   }
