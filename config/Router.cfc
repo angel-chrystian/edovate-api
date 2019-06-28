@@ -15,6 +15,11 @@ component{
 			return "Ok!";
 		});
 
+		// A route to the queries been implemented
+		route( "/test",function(event,rc,prc){
+			return renderView( "test" );
+		});
+
 		// Companies resource
 		route( "/companies/:companyID-numeric" )
 		  .withAction({
