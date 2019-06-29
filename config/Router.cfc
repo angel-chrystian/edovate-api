@@ -24,7 +24,7 @@ component{
 		route( "/companies/:companyID-numeric" )
 		  .withAction({
 		  	GET = 'getCompany',
-		  	POST = 'save',
+		  	GET = 'save',
 		  	PUT = 'save',
 		  	DELETE = 'remove'
 		  })

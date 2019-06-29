@@ -1,6 +1,8 @@
 /**
- * My RESTFul Event Handler which inherits from the module `api`
- */
+ *	Author: Angel Chrystian Torres
+ *	Date: 6/29/2019
+ *	Event handler for companies in the API.
+ **/
 component extends="BaseHandler"{
 	property name="companyService" inject="services.companyService";
 
@@ -19,10 +21,13 @@ component extends="BaseHandler"{
 	* Index
 	*/
 	any function index( event, rc, prc ){
+	  local.dev = getSetting( "environment" );
+
 	  local.args = {
-      top = getSetting( "environment" ) == 'development' ? 5 : 0,
+      top = listFindNoCase( 'development,staging', local.dev ) ? 5 : 0,
       asStruct = true
     };
+    if( event.valueExists( 'top' ) ) local.args.top = rc.top;
     local.result = companyService.get( argumentCollection = args );
 		prc.response.setData( local.result );
 	}
