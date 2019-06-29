@@ -54,4 +54,41 @@ component{
 		return application.cbBootstrap.onMissingTemplate( argumentCollection=arguments );
 	}
 
+  function onError( any e, eventName ){
+    try{
+    	savecontent variable="local.message"{
+        writeoutput(
+          'Error in: #getPageContext().getRequest().getScheme()#://#cgi.server_name#/#cgi.script_name#?#cgi.query_string# </br>' &
+          'Message: #e.message#  </br> Detail: #e.detail# </br>' &
+          '#structKeyExists( e, "cause" ) ? e.cause.message : ""#  </br>'
+        );
+        for( var i = 1; i lte e.TagContext.len(); i++ ){
+          writeoutput(
+            'Raw Trace: #e.TagContext[ i ].RAW_TRACE# </br>'&
+            'Tag Context: #e.TagContext[ i ].TEMPLATE# </br></hr>'
+          );
+        }
+        writedump(var = local.message, output="#getDirectoryFromPath( getCurrentTemplatePath())#logs/OnError_#dateFormat( now(), 'ddmmyy')##timeFormat( now(), 'hhmmss')#.htm" );
+      }
+      var mailService = new mail(
+          to = 'issues@angel-chrystian.com',
+          from = 'mailer@situricia.mx',
+          subject = 'Situricia.mx Site error [#CGI.SERVER_NAME#]',
+          type = 'html',
+          body = local.message
+      );
+      mailService.send();
+      writeoutput('Ha ocurrido un error, por favor reportelo al webmaster' );abort;
+    }catch( any err ){
+    	var mailService = new mail(
+          to = 'issues@angel-chrystian.com',
+          from = 'mailer@situricia.mx',
+          subject = 'edovate-api Site error [#CGI.SERVER_NAME#]',
+          type = 'html',
+          body = '#err.message# #err.detail#'
+      );
+      mailService.send();
+    }
+  }
+
 }

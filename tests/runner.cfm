@@ -11,11 +11,11 @@
 
 <!--- Code Coverage requires FusionReactor --->
 <cfparam name="url.coverageEnabled"					default="true">
-<cfparam name="url.coveragePathToCapture"			default="#expandPath( '/root/models/' )#">
+<cfparam name="url.coveragePathToCapture"			default="#expandPath( '/root/models/services/' )#">
 <cfparam name="url.coverageWhitelist"				default="">
 <cfparam name="url.coverageBlacklist"				default="/testbox,/coldbox,/tests,/modules,Application.cfc,/index.cfm">
-<!---<cfparam name="url.coverageBrowserOutputDir"		default="#expandPath( '/tests/results/coverageReport' )#">--->
-<!---<cfparam name="url.coverageSonarQubeXMLOutputPath"	default="#expandPath( '/tests/results/SonarQubeCoverage.xml' )#">--->
+<cfparam name="url.coverageBrowserOutputDir"		default="#expandPath( '/tests/results/coverageReport' )#">
+<cfparam name="url.coverageSonarQubeXMLOutputPath"	default="#expandPath( '/tests/results/SonarQubeCoverage.xml' )#">
 
 <!--- Include the TestBox HTML Runner --->
 <cfinclude template="/testbox/system/runners/HTMLRunner.cfm" >

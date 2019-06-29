@@ -21,14 +21,17 @@
         "testbox":"^3.0.0"
     },
     "installPaths":{
-        "coldbox":"coldbox",
+        "coldbox":"coldbox/",
         "relax":"modules/relax/",
-        "testbox":"testbox",
-        "route-visualizer":"modules/route-visualizer/"
+        "testbox":"testbox/",
+        "route-visualizer":"modules/route-visualizer/",
+        "cbcommons":"modules/cb-bundle/cbcommons/",
+        "cbdebugger":"modules/cbdebugger/"
     },
     "dependencies":{
         "coldbox":"^5.0.0",
-        "route-visualizer":"^1.2.0+4"
+        "route-visualizer":"^1.2.0+4",
+        "cbcommons":"^1.1.0"
     },
     "scripts":{}
 }

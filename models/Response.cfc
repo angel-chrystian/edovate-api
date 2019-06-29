@@ -21,6 +21,7 @@ component accessors="true"{
 	property name="responsetime"	type="numeric"		default="0";
 	property name="cachedResponse" 	type="boolean"		default="false";
 	property name="headers" 		type="array";
+	property name="returnOnlyData" type="boolean" default="true";
 
 	/**
 	* Constructor
@@ -81,6 +82,6 @@ component accessors="true"{
 			packet.data = {};
 		}
 
-		return packet;
+		return this.getReturnOnlyData() ? packet.data : packet;
 	}
 }

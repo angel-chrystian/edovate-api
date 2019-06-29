@@ -17,7 +17,7 @@
 			handlersIndexAutoReload = true,
 
 			//Implicit Events
-			defaultEvent			= "companies.index",
+			defaultEvent			= "Main.welcome",
 			requestStartHandler		= "",
 			requestEndHandler		= "",
 			applicationStartHandler = "",
@@ -38,7 +38,7 @@
 
 			//Error/Exception Handling
 			invalidHTTPMethodHandler = "",
-			exceptionHandler		= "",
+			exceptionHandler		= "Main.onException",
 			invalidEventHandler			= "",
 			customErrorTemplate		= "",
 
@@ -49,9 +49,15 @@
 		};
 
 		// custom settings
-		settings = {
-
-		};
+    settings = {
+      adminEmail    = "issues@angel-chrystian.com",
+      testMode      = false,
+      testingEmail  = "issues@angel-chrystian.com",
+      rootDirectory = getDirectoryFromPath( expandPath("/") ),
+      maintenance   = false,
+      developerMail = 'issues@angel-chrystian.com'
+    };
+    settings.logDirectory = settings.rootDirectory & 'logs/';
 
 		// Relax Configuration Settings
     relax = {
@@ -67,7 +73,8 @@
 		// create a function with the name of the environment so it can be executed if that environment is detected
 		// the value of the environment is a list of regex patterns to match the cgi.http_host.
 		environments = {
-			development = "local,127\.0\.0\.1"
+			development = "edovate-api\.local",
+			staging = "apidev\.edovate\.com"
 		};
 
 		// Module Directives
@@ -78,16 +85,60 @@
 			exclude = []
 		};
 
+		mailsettings = {
+      server = 'mail.angel-chrystian.com',
+      username = 'issues@angel-chrystian.com',
+      password = 'Brad2610*'
+    };
+
 		//LogBox DSL
 		logBox = {
 			// Define Appenders
 			appenders = {
-				coldboxTracer = { class="coldbox.system.logging.appenders.ConsoleAppender" }
+				coldboxTracer = { class="coldbox.system.logging.appenders.ConsoleAppender" },
+				dumpAppender = {
+          properties = {},
+          class = "models.logAppenders.DumpAppender",
+          levelMin=4,
+          levelMax=4
+        },
+        dumpErrorAppender = {
+          properties = {},
+          class = "models.logAppenders.DumpAppender",
+          levelMin=0,
+          levelMax=0
+        },
+        emailAppender = {
+          properties = {
+            subject = ' Error #coldbox.appName#',
+            from = settings.adminEmail,
+            to = settings.developerMail,
+            mailserver = mailsettings.server,
+            mailusername = mailsettings.username,
+            mailpassword = mailsettings.password
+          },
+          class = "coldbox.system.logging.appenders.EmailAppender",
+          levelMin=0,
+          levelMax=0
+        },
+        fileAppender = {
+          properties = {
+            filePath = '/logs',
+            fileMaxArchives = 5,
+            fileMaxSize = 5000,
+            async = false,
+            fileName = 'edovateapilogs',
+            fileEncoding = 'utf-8'
+          },
+          class = "coldbox.system.logging.appenders.RollingFileAppender",
+          levelMin=0,
+          levelMax=3
+        }
 			},
 			// Root Logger
-			root = { levelmax="INFO", appenders="*" },
+			root = { levelmin="FATAL", levelmax="DEBUG", appenders="*" },
 			// Implicit Level Categories
-			info = [ "coldbox.system" ]
+			off = [ 'coldbox.system' ]
 		};
 
 		//Layout Settings

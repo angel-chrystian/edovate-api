@@ -19,8 +19,12 @@ component extends="BaseHandler"{
 	* Index
 	*/
 	any function index( event, rc, prc ){
-		local.result = companyService.getCompanies( top = 5 );
-    prc.response.setData( local.result );
+	  local.args = {
+      top = getSetting( "environment" ) == 'development' ? 5 : 0,
+      asStruct = true
+    };
+    local.result = companyService.get( argumentCollection = args );
+		prc.response.setData( local.result );
 	}
 
 /**
@@ -28,7 +32,12 @@ component extends="BaseHandler"{
  **/
   public any function getCompany( event, rc, prc ){
     if( event.valueExists( 'companyID' ) && isNumeric( rc.companyID ) ){
-    	local.result = companyService.getCompany( rc.companyID, true );
+    	local.args = {
+        companyID = rc.companyID,
+        top = getSetting( "environment" ) == 'development' ? 2 : 0,
+        asStruct = true
+      };
+    	local.result = companyService.get( argumentCollection = args );
     	prc.response.setData( local.result );
     }
   }

@@ -3,53 +3,37 @@
  *	Date: 6/27/2019
  *	I model the data layer for companies.
  **/
-component accessors="true" singleton="true"{
+component extends="BaseService"  accessors="true" singleton="true"{
 
 	// Properties
 	property name="wirebox" inject="wirebox";
+	property name="orgID" type="numeric" default="8450";
 
 	/**
 	 * Constructor
 	 */
 	CompanyService function init(){
-
+    this.setResourceName( 'Company' );
 		return this;
 	}
 
 /**
- * Returns a Company by ID
- * @companyID ID of the company to retrieve
+ * Returns a Resource by ID
+ * @companyID ID of the company to retrieve if it is -1 or omitted, returns all the records limited but "top" argument
  * @asStruct  If true returns a struct otherwise an object of type Company
+ * @top       Greater than 0 limits the query to the number if 0, returns all the records
  **/
-  public any function getCompany( required numeric companyID, asStruct = false ){
-    local.Company = wirebox.getInstance( 'Company' );
-    local.data = getDataQuery( companyID = arguments.companyID );
-    if( local.data.recordCount ){
-    	populator.populateFromQuery( local.Company, local.data );
-    	if( arguments.asStruct ){
-    		return local.Company.$renderData();
-    	}else{
-    		return local.Company;
-    	}
-    }
-  }
+  public any function get(
+    numeric companyID = -1,
+    boolean asStruct = false,
+    numeric top = 0
+  ){
+  	local.isList = arguments.companyID <= 0;
+    local.args = { top = arguments.top };
+    if( arguments.companyID > 0 ) local.args.companyID = arguments.companyID;
+    local.data = getDataQuery( argumentCollection = local.args );
 
-/**
- * Returns an array of Companies
- * @asStruct  If true returns an array of structs otherwise an array of objects of type Company
- **/
-  public array function getCompanies( asStruct = false, numeric top = 0 ){
-    local.data = getDataQuery( top = arguments.top );
-    local.result = [];
-    if( local.data.recordCount ){
-      for( var i = 1; i <= local.data.recordCount; i++ ){
-      	local.Company = wirebox.getInstance( 'Company' );
-      	populator.populateFromQuery( local.Company, local.data, i );
-      	// Convert the object to struct in required
-      	if( arguments.asStruct ) local.Company = local.Company.$renderData();
-      	local.result.append( local.Company );
-      }
-    }
+    local.result = super.formatResult( local.data, arguments.asStruct, local.isList );
     return local.result;
   }
 
@@ -57,7 +41,7 @@ component accessors="true" singleton="true"{
  * Performs the query
  * @companyID If ommited the function returns all the companies otherwise the company corresponding to the companyID
  **/
-  public query function getDataQuery( numeric orgID = 8450, companyID = "", top = 0 ){
+  public query function getDataQuery( numeric orgID = this.getOrgID(), companyID = -1, top = 0 ){
     // Query parameters
     local.params = {
     	orgID = { value = arguments.orgID, cfsqltype="cf_sql_integer" }
@@ -82,7 +66,7 @@ component accessors="true" singleton="true"{
                enPh.PhoneNumber as phone,
                ext2163.extFieldValue as blc_username,
                ext2164.extFieldValue as blc_password,
-               er.pk_EntityRelationshipId as tag
+               er.pk_EntityRelationshipId
         from mb_EntityRelationship er INNER JOIN mb_entity en ON en.pk_EntityId = er.fk_RelatedEntityId
                 LEFT JOIN mb_entity onw ON onw.pk_entityID = en.CreatedBy
                 LEFT JOIN mb_entityEmail enEm ON enEm.fk_entityID = en.pk_entityID and enEm.PrimaryEmail = 1
@@ -92,7 +76,7 @@ component accessors="true" singleton="true"{
         where er.fk_coid = :orgID
     	");
     	// Add companyID if passed
-    	if( isNumeric( arguments.companyID ) ){
+    	if( arguments.companyID > 0 ){
     		writeoutput("
     		  and en.pk_entityID = :companyID
     		");
@@ -102,11 +86,6 @@ component accessors="true" singleton="true"{
 
     local.result = queryExecute( local.sql, local.params, { cachedWithin = createTimeSpan( 0, 0, 20, 0 ) } );
     return local.result;
-  }
-
-  // Runs after Dependency Injection has been completed
-  function onDIComplete(){
-  	variables.populator = wirebox.getObjectPopulator();
   }
 
 }

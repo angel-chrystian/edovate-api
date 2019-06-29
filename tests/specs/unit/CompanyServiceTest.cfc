@@ -27,35 +27,35 @@ component extends="coldbox.system.testing.BaseModelTest" model="models.services.
 
 	function run(){
 
-		describe( "getCompany() function", function(){
-			it( "Returns a Company object when asStruct is false", function(){
-				local.result = model.getCompany( 3536615 );
-				expect( local.result ).toBeTypeOf( "component", "Result is not a component" );
-				expect( getMetaData( local.result ).name ).toBe( 'models.Company', "Result is not type Company" );
-			});
-
-			it( "Returns a Struct when asStruct is true", function(){
-        local.result = model.getCompany( 3536615, true );
-        expect( local.result ).toBeTypeOf( "struct", "Result is not a struct" );
-        expect( structIsEmpty( local.result ) ).toBeFalse();
+    describe( "get() function", function(){
+      it( "Returns a Company object", function(){
+        cacheRemoveAll('query');
+        local.result = model.get(3536615);
+        expect( local.result ).toBeTypeOf( "component", "Result is not a Component" );
+        expect(
+        	replace( getMetaData( local.result ).name, 'root.', '' )
+        ).toBe( 'models.Company' );
       });
 
-		});
-
-		describe( "getCompanies() function", function(){
-      it( "Returns an array of Company objects when asStruct is false", function(){
-        local.result = model.getCompanies( top = 2 );
-        debug( local.result );
-        expect( local.result ).toBeTypeOf( "array", "Result is not an array" );
-        expect( local.result[1] ).toBeTypeOf( "component", "Result is not an array" );
-        expect( getMetaData( local.result[1] ).name ).toBe( 'models.Company', "Result is not type Company" );
+      it( "Returns a Company as a structure", function(){
+        cacheRemoveAll('query');
+        local.result = model.get( companyID = 3536615, asStruct = true );
+        expect( local.result ).toBeTypeOf( "struct", "Result is not a Struct" );
       });
 
-      it( "Returns a Struct when asStruct is true", function(){
-        local.result = model.getCompanies( asStruct = true, top = 2 );
-        debug( local.result );
-        expect( local.result[1] ).toBeTypeOf( "struct", "Result is not a struct" );
-        expect( structIsEmpty( local.result[1] ) ).toBeFalse();
+      it( "Returns an array of Company objects", function(){
+        cacheRemoveAll('query');
+        local.result = model.get( top = 5 );
+        expect( local.result[1] ).toBeTypeOf( "component", "Result is not a Component" );
+        expect(
+          replace( getMetaData( local.result[1] ).name, 'root.', '' )
+        ).toBe( 'models.Company' );
+      });
+
+      it( "Returns an array of Company as a structure", function(){
+        cacheRemoveAll('query');
+        local.result = model.get( top = 5, asStruct = true );
+        expect( local.result[1] ).toBeTypeOf( "struct", "Result is not a Struct" );
       });
 
     });
