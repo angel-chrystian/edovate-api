@@ -3,9 +3,10 @@
 * and then create it, prepare it for mocking and then place it in the variables scope as 'model'. It is your
 * responsibility to update the model annotation instantiation path and init your model.
 */
-component extends="coldbox.system.testing.BaseModelTest" model="root.models.services.CompanyService"{
+component extends="coldbox.system.testing.BaseModelTest" model="root.models.services.ContactService"{
 
 	/*********************************** LIFE CYCLE Methods ***********************************/
+
   this.loadColdbox = true;
 
 	function beforeAll(){
@@ -27,32 +28,45 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.serv
 
 	function run(){
 
-    describe( "get() function", function(){
-      it( "Returns a Company object", function(){
+    describe( "getDataQuery() function", function(){
+
+    	it( "Returns a query", function(){
         cacheRemoveAll('query');
-        local.result = model.get(3536615);
-        expect( local.result ).toBeTypeOf( "component", "Result is not a Component" );
-        expect(
-        	replace( getMetaData( local.result ).name, 'root.', '' )
-        ).toBe( 'models.Company' );
+        local.result = model.getDataQuery(3537793);
+        expect( local.result ).toBeTypeOf( "query", "Result is not a Query" );
+        expect( local.result.recordCount ).toBe( 1 );
       });
 
-      it( "Returns a Company as a structure", function(){
+    });
+
+
+    describe( "get() function", function(){
+
+      it( "Returns a Contact object", function(){
         cacheRemoveAll('query');
-        local.result = model.get( companyID = 3536615, asStruct = true );
+        local.result = model.get(3537793);
+        expect( local.result ).toBeTypeOf( "component", "Result is not a Component" );
+        expect(
+          replace( getMetaData( local.result ).name, 'root.', '' )
+        ).toBe( 'models.Contact' );
+      });
+
+      it( "Returns a Contact as a structure", function(){
+        cacheRemoveAll('query');
+        local.result = model.get( contactID = 3537793, asStruct = true );
         expect( local.result ).toBeTypeOf( "struct", "Result is not a Struct" );
       });
 
-      it( "Returns an array of Company objects", function(){
+      it( "Returns an array of Contact objects", function(){
         cacheRemoveAll('query');
         local.result = model.get( top = 5 );
         expect( local.result[1] ).toBeTypeOf( "component", "Result is not a Component" );
         expect(
           replace( getMetaData( local.result[1] ).name, 'root.', '' )
-        ).toBe( 'models.Company' );
+        ).toBe( 'models.Contact' );
       });
 
-      it( "Returns an array of Company as a structure", function(){
+      it( "Returns an array of Contacts as a structure", function(){
         cacheRemoveAll('query');
         local.result = model.get( top = 5, asStruct = true );
         expect( local.result[1] ).toBeTypeOf( "struct", "Result is not a Struct" );

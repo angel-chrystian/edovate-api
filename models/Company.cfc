@@ -9,7 +9,7 @@ component accessors="true"{
 
 	// Properties
 	property name="id" type="string" default="" hint="Id of the company"  ;
-	property name="type" type="string" default="" hint="Value is company";
+	property name="type" type="string" default="company" hint="Value is 'company'";
 	property name="owner" type="string"  default="" hint="The contact owner";
 	property name="created" type="date" hint="The time the company was added to Edovate";
 	property name="parent" type="string" hint="The company name";
@@ -55,8 +55,8 @@ component accessors="true"{
 /**
  * Returns a structure representation of the object
  **/
-  public struct function $renderData( top = 0 ){
-    var result = {
+  public struct function $renderData(){
+    local.result = {
     	id = getId(),
     	type = getType(),
     	owner = getOwner(),
@@ -68,7 +68,7 @@ component accessors="true"{
     	blc_password = getBlc_password(),
     	tag = variables.tag
     };
-    return result;
+    return local.result;
   }
 
 }

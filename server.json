@@ -14,8 +14,8 @@
     },
     "console":"true",
     "jvm":{
-        "heapSize":512,
-        "minHeapSize":256,
+        "heapSize":1024,
+        "minHeapSize":512,
         "args":"-Dfile.encoding=utf8"
     }
 }

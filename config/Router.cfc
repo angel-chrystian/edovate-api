@@ -30,6 +30,16 @@ component{
 		  })
 		  .toHandler( "companies" );
 
+		// Contacts resource
+    route( "/contacts/:contactID-numeric" )
+      .withAction({
+        GET = 'getContact',
+        POST = 'save',
+        PUT = 'save',
+        DELETE = 'remove'
+      })
+      .toHandler( "contacts" );
+
 
 		// Conventions based routing
 		route( ":handler/:action?" ).end();

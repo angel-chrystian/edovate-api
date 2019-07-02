@@ -1,0 +1,212 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Edovate",
+        "description": "This is the Official Edovate Server API structure\n",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "edward@bunity.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://virtserver.swaggerhub.com/Edovate8/Edovate/1.0.0",
+            "description": "SwaggerHub API Auto Mocking"
+        },
+        {
+            "url": "https://api.edovate.com",
+            "description": "Edovate Official API"
+        },
+        {
+            "url": "http://apidev.edovate.com/",
+            "description": "Edovate development API"
+        }
+    ],
+    "tags": [
+        {
+            "name": "companies",
+            "description": "Operations about companies",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "https://www.homeschoolacademy.com/"
+            }
+        }
+    ],
+    "paths": {
+        "/companies": {
+            "get": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "Find all companies",
+                "description": "Returns all companies",
+                "operationId": "findAllCompanies",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/inline_response_200"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No companies found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "Create company",
+                "description": "Create a new company",
+                "operationId": "createCompany",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/Company"
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created user object",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Company"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/companies/{companyId}": {
+            "get": {
+                "tags": [
+                    "companies"
+                ],
+                "summary": "Find a single company",
+                "description": "Returns a single company",
+                "operationId": "getCompanyById",
+                "parameters": [
+                    {
+                        "name": "companyId",
+                        "in": "path",
+                        "description": "ID of company to return",
+                        "required": true,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Company"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid ID supplied"
+                    },
+                    "404": {
+                        "description": "Company not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Company": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "owner": {
+                        "type": "string"
+                    },
+                    "created": {
+                        "type": "integer"
+                    },
+                    "parent": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "blc_username": {
+                        "type": "string"
+                    },
+                    "blc_password": {
+                        "type": "string"
+                    },
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tag"
+                        }
+                    }
+                }
+            },
+            "Tag": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "inline_response_200": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Company"
+                        }
+                    }
+                }
+            }
+        },
+        "requestBodies": {
+            "Company": {
+                "description": "Company object that needs to be added to the db",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Company"
+                        }
+                    }
+                },
+                "required": true
+            }
+        }
+    }
+}
