@@ -5,14 +5,11 @@
  **/
 component extends="BaseService"  accessors="true" singleton="true"{
 
-	// Properties
-	property name="wirebox" inject="wirebox";
-	property name="orgID" type="numeric" default="8450";
-
 	/**
 	 * Constructor
 	 */
 	CompanyService function init(){
+    // Configure BaseService to use Company as the resource
     this.setResourceName( 'Company' );
 		return this;
 	}
@@ -28,20 +25,32 @@ component extends="BaseService"  accessors="true" singleton="true"{
     boolean asStruct = false,
     numeric top = 0
   ){
+  	// companyID greater than 0 returns a list
   	local.isList = arguments.companyID <= 0;
+
+    // Set the query arguments
     local.args = { top = arguments.top };
     if( arguments.companyID > 0 ) local.args.companyID = arguments.companyID;
+
+    // Run the query
     local.data = getDataQuery( argumentCollection = local.args );
 
+    // Format the result
     local.result = super.formatResult( local.data, arguments.asStruct, local.isList );
     return local.result;
   }
 
 /**
- * Performs the query
- * @companyID If ommited the function returns all the companies otherwise the company corresponding to the companyID
+ * Performs the query that retrieves the companies
+ * @orgID     The organization ID for the moment it defaults to 8450
+ * @companyID If ommited or less than zero, the function returns all the companies otherwise the company corresponding to the companyID
+ * @top       The number of rows to return if 0 returns all the rows
  **/
-  public query function getDataQuery( numeric orgID = this.getOrgID(), companyID = -1, top = 0 ){
+  public query function getDataQuery(
+  	numeric orgID = this.getOrgID(),
+  	companyID = -1,
+  	top = 0
+  ){
     // Query parameters
     local.params = {
     	orgID = { value = arguments.orgID, cfsqltype="cf_sql_integer" }
@@ -73,7 +82,8 @@ component extends="BaseService"  accessors="true" singleton="true"{
                 LEFT JOIN mb_entityPhone enPh ON enPh.fk_entityID = en.pk_entityID and enPh.PrimaryPhone = 1
                 LEFT JOIN mb_entityExtCustomFieldValues ext2163 ON ext2163.fk_entityID = en.pk_entityID and ext2163.fk_extfieldid = 2163
                 LEFT JOIN mb_entityExtCustomFieldValues ext2164 ON ext2164.fk_entityID = en.pk_entityID and ext2164.fk_extfieldid = 2164
-        where er.fk_coid = :orgID
+        where er.fk_coid = :orgID and
+                en.entityname is not null and en.entityname != ''
     	");
     	// Add companyID if passed
     	if( arguments.companyID > 0 ){

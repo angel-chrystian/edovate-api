@@ -28,11 +28,21 @@ component extends="BaseService"  accessors="true" singleton="true"{
     boolean asStruct = false,
     numeric top = 0
   ){
+  	// If contactID is gt 0 then a list is requested
   	local.isList = arguments.contactID <= 0;
+  	// Set the limit of rows to return
     local.args = { top = arguments.top };
+
+    // Return one contact only
     if( arguments.contactID > 0 ) local.args.contactID = arguments.contactID;
+
+    // Execute the query
     local.data = getDataQuery( argumentCollection = local.args );
 
+    // If not a list and no records return an empty struct
+    if( !local.isList && local.data.recordCount == 0 ) return {};
+
+    // Format the result
     local.result = super.formatResult( local.data, arguments.asStruct, local.isList );
     return local.result;
   }
@@ -40,8 +50,14 @@ component extends="BaseService"  accessors="true" singleton="true"{
 /**
  * Performs the query
  * @contactID If ommited the function returns all the companies otherwise the contact corresponding to the contactID
+ * @orgID     Organization ID of the contac(s) to retrieve
+ * @top       Greater than 0 limits the query to the number if 0, returns all the records
  **/
-  public query function getDataQuery( contactID = -1, numeric orgID = this.getOrgID(), top = 0 ){
+  public query function getDataQuery(
+  	numeric contactID = -1,
+  	numeric orgID = this.getOrgID(),
+  	numeric top = 0
+  ){
     // Query parameters
     local.params = {
     	orgID = { value = arguments.orgID, cfsqltype="cf_sql_integer" }
@@ -62,6 +78,7 @@ component extends="BaseService"  accessors="true" singleton="true"{
           onw.firstname as ownerFirstName,
           onw.lastname as ownerLastName,
           en.created as created_on,
+          en.entityname as parent,
 
           erP.fk_RelatedEntityId as parent_id,
           en.firstName as first_name,
@@ -96,8 +113,7 @@ component extends="BaseService"  accessors="true" singleton="true"{
           LEFT JOIN mb_entityExtCustomFieldValues ext2111 ON ext2111.fk_entityID = en.pk_entityID and ext2111.fk_extfieldid = 2111
           LEFT JOIN mb_entityExtCustomFieldValues ext2114 ON ext2114.fk_entityID = en.pk_entityID and ext2114.fk_extfieldid = 2114
           LEFT JOIN mb_entityExtCustomFieldValues ext1969 ON ext1969.fk_entityID = en.pk_entityID and ext1969.fk_extfieldid = 1969
-
-        where er.fk_coid = :orgID
+        where er.fk_coid = :orgID and en.entityname is null
     	");
     	// Add contactID if passed
     	if( arguments.contactID > 0 ){
@@ -108,6 +124,7 @@ component extends="BaseService"  accessors="true" singleton="true"{
     	}
     }
     local.result = queryExecute( local.sql, local.params, { cachedWithin = createTimeSpan( 0, 0, 20, 0 ) } );
+
     return local.result;
   }
 

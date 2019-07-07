@@ -30,17 +30,57 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.serv
 
     describe( "getDataQuery() function", function(){
 
-    	it( "Returns a query", function(){
+    	it( "Returns a query with top limit or records", function(){
+        // Remove query cache
         cacheRemoveAll('query');
-        local.result = model.getDataQuery(3537793);
-        expect( local.result ).toBeTypeOf( "query", "Result is not a Query" );
-        expect( local.result.recordCount ).toBe( 1 );
+        // Test the function with 5 records limit
+        local.result = model.getDataQuery( top = 5 );
+        // Expect a query
+        expect( local.result ).toBeTypeOf( "query", "Result is not a query" );
+        expect( local.result.recordCount ).notToBe( 0, "Must return records" );
+
+        for( var contact in local.result ){
+          local.isParentNull = ( contact.parent == "" );
+          if( !local.isParentNull ) break;
+        }
+
+        expect( local.isParentNull ).toBe( true );
+      });
+
+      it( "Returns a query", function(){
+        // Remove query cache
+        cacheRemoveAll('query');
+        // Test the function with 5 records limit
+        local.result = model.getDataQuery();
+        // Expect a query
+        expect( local.result ).toBeTypeOf( "query", "Result is not a query" );
+        expect( local.result.recordCount ).notToBe( 0, "Must return records" );
+
+        for( var contact in local.result ){
+          local.isParentNull = ( contact.parent == "" );
+          if( !local.isParentNull ) break;
+        }
+
+        expect( local.isParentNull ).toBe( true );
       });
 
     });
 
 
     describe( "get() function", function(){
+
+      it( "Throws an error when de contacID is to large", function(){
+        cacheRemoveAll('query');
+        expect( function(){
+        	local.result = model.get(3559056000000);
+        }).toThrow();
+      });
+
+      it( "Returns an empty struct when the contact is not found", function(){
+        cacheRemoveAll('query');
+        local.result = model.get(6549);
+        debug( local.result );
+      });
 
       it( "Returns a Contact object", function(){
         cacheRemoveAll('query');

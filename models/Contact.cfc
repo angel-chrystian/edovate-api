@@ -7,7 +7,7 @@ component accessors="true"{
 
 	// Properties
   property name="contact_id" type="string" default="" hint="Id of the contact"  ;
-  property name="type" type="string" default="contact" hint="Value is 'contact'";
+  property name="type" type="string" default="contact" hint="Value is 'contact'" setter="false" ;
   property name="owner" type="string"  default="" hint="The contact owner";
   property name="created_on" type="string" hint="The time the contact was added to Edovate";
   property name="parent_id" type="string" hint="The entity id of the parent's relationship";
@@ -35,8 +35,15 @@ component accessors="true"{
 		return this;
 	}
 
+  // Validation constraints
+  this.constraints = {
+  	first_name = { required = true, requiredMessage = "First Name is required for a contact" }
+  };
+
 /**
- * Returns a structure representation of the object
+ * Returns a structure representation of the object if an instance of this object is returned in a handler
+ * this function will be implicitly invoked to return this object data in a specific format.
+ * @return Contact in a struct format
  **/
   public struct function $renderData(){
     local.result = {

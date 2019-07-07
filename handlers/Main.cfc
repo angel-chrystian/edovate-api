@@ -45,7 +45,8 @@
  * Welcome page
  **/
   public any function welcome( event, rc, prc ){
-    event.renderData( type = "html", data = "<h1>Welcome to EDOVATE API</h1>" );
+    return getInstance('services.CompanyService').get( 3536615 );
+    //event.renderData( type = "html", data = "<h1>Welcome to EDOVATE API</h1>" );
   }
 
 	/************************************** IMPLICIT ACTIONS *********************************************/

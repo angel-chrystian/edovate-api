@@ -102,6 +102,7 @@ select
 	onw.firstname as ownerFirstName,
 	onw.lastname as ownerLastName,
 	en.created as created_on,
+	en.entityname,
 
 	erP.fk_RelatedEntityId as parent_id,
 	en.firstName as first_name,

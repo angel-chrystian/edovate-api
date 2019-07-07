@@ -37,13 +37,30 @@ component extends="BaseHandler"{
  **/
   public any function getContact( event, rc, prc ){
     if( event.valueExists( 'contactID' ) && isNumeric( rc.contactID ) ){
-    	local.args = {
-        contactID = rc.contactID,
-        top = getSetting( "environment" ) == 'development' ? 2 : 0,
-        asStruct = true
-      };
-    	local.result = contactService.get( argumentCollection = args );
-    	prc.response.setData( local.result );
+    	try{
+      	local.args = {
+          contactID = rc.contactID,
+          top = getSetting( "environment" ) == 'development' ? 2 : 0,
+          asStruct = true
+        };
+
+      	// Get the data
+      	local.result = contactService.get( argumentCollection = args );
+
+      	// Put the data in the response
+      	prc.response.setData( local.result );
+
+      	// Add status of NOT FOUND
+      	if( structIsEmpty( local.result ) ) prc.response.setStatusCode( STATUS.NOT_FOUND );
+    	}catch( any e ){
+    		prc.response.setError( true );
+    		prc.response.addMessage( '#e.message# #e.detail#' );
+    		prc.response.setStatusCode( STATUS.NOT_FOUND );
+    		prc.response.setStatusText( 'Contact not found' );
+    	}
+    }else{
+    	prc.response.setError( true );
+    	prc.response.setStatusCode( STATUS.BAD_REQUEST );
     }
   }
 

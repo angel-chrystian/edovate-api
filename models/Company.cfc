@@ -9,7 +9,7 @@ component accessors="true"{
 
 	// Properties
 	property name="id" type="string" default="" hint="Id of the company"  ;
-	property name="type" type="string" default="company" hint="Value is 'company'";
+	property name="type" type="string" default="company" hint="Value is 'company'" setter="false" ;
 	property name="owner" type="string"  default="" hint="The contact owner";
 	property name="created" type="date" hint="The time the company was added to Edovate";
 	property name="parent" type="string" hint="The company name";
@@ -21,8 +21,14 @@ component accessors="true"{
 
 	variables.tagsLoaded = false;
 
+  // Validation constraints
+  this.constraints = {
+    first_name = { required = true, requiredMessage = "First Name is required for a contact" }
+  };
+
 	/**
 	 * Constructor
+	 * @return Company instance
 	 */
 	Company function init(){
     variables.tag = [];
@@ -31,8 +37,10 @@ component accessors="true"{
 
 /**
  * Returns an array of Tags related to the company
+ * @asStruct  Flag if true returns an Object otherwise returns a struct
+ * @top       Number of rows to return
  **/
-  public array function getTag( asStruct = false, top = 0 ){
+  public array function getTag( boolean asStruct = false, numeric top = 0 ){
     if( variables.tagsLoaded ){
     	return variables.tag;
     }else{

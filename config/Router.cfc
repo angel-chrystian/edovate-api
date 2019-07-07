@@ -24,8 +24,8 @@ component{
 		route( "/companies/:companyID-numeric" )
 		  .withAction({
 		  	GET = 'getCompany',
-		  	GET = 'save',
 		  	PUT = 'save',
+		  	POST = 'save',
 		  	DELETE = 'remove'
 		  })
 		  .toHandler( "companies" );
@@ -34,8 +34,8 @@ component{
     route( "/contacts/:contactID-numeric" )
       .withAction({
         GET = 'getContact',
-        POST = 'save',
         PUT = 'save',
+        POST = 'save',
         DELETE = 'remove'
       })
       .toHandler( "contacts" );

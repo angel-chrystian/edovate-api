@@ -1,0 +1,3497 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Response</title>
+	<meta name="keywords" content="models.concurrent.Callable interface">
+	<!-- common assets -->
+	
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel ="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+<link rel ="stylesheet" type="text/css" href="../stylesheet.css">
+	
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,700,700italic|Ubuntu+Mono' rel='stylesheet' type='text/css' />
+	
+<script src="../bootstrap/js/jquery-2.1.0.min.js" type="text/javascript"></script>
+<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+	// Global Tool Tip Settings
+	$( '[title]' ).tooltip({
+		 animation: 'slide',
+		 delay: { show: 250, hide: 250 }
+	});
+});
+</script>
+	<!-- syntax highlighter -->
+	<link type="text/css" rel="stylesheet" href="../highlighter/styles/shCoreDefault.css">
+	<script src="../highlighter/scripts/shCore.js"></script>
+	<script src="../highlighter/scripts/shBrushColdFusion.js"></script>
+	<script src="../highlighter/scripts/shBrushXml.js"></script>
+	<script src="../highlighter/scripts/shBrushSql.js"></script>
+	<script src="../highlighter/scripts/shBrushJScript.js"></script>
+	<script src="../highlighter/scripts/shBrushJava.js"></script>
+	<script src="../highlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+
+<body class="withNavbar">
+
+
+
+
+
+
+<!-- ========= START OF NAVBAR ======= -->
+<a name="navbar_top"></a>
+<a href="#skip-navbar_top" title="skip navigation links"></a>	
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+    
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#class-navigation">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><strong>Edovate API</strong></a>
+		</div>
+
+	    <div class="collapse navbar-collapse" id="class-navigation">
+	    	<ul class="nav navbar-nav">
+				
+					
+					<li><a href="../overview-summary.html"><i class="glyphicon glyphicon-plane"></i> overview</a></li>
+					
+				
+
+				
+					<li><a href="package-summary.html"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;package</a></li>
+				
+
+			  	
+					<li class="dropdown active">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-file"></i> class <b class="caret"></b></a>
+
+						<ul class="dropdown-menu">
+							<li><a href="#class">Class Definition</a></li>
+							<li><a href="#constructor_summary">Constructor Summary</a></li>
+							<li><a href="#constructor_detail">Constructor Detail</a></li>
+							<li><a href="#inherited_methods">Inherited Methods</a></li>
+							<li><a href="#method_summary">Method Summary</a></li>
+							<li><a href="#method_detail">Method Detail</a></li>
+							<li><a href="#property_summary">Property Summary</a></li>
+							<li><a href="#property_detail">Property Detail</a></li>
+							
+						</ul>
+					</li>
+				
+	      	</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="../index.html?models/Response.html" target="_top">
+					<i class="glyphicon glyphicon-fullscreen"></i> Frames
+					</a>
+				</li>
+			</ul>
+	    </div>
+
+	</div>
+</nav>	
+
+<a name="skip-navbar_top"></a>
+<!-- ========= END OF NAVBAR ========= -->
+
+<!-- ======== start of class data ======== -->
+<a name="class"><!-- --></a>
+
+<!-- Package -->
+<div class="pull-right">
+	<a href="package-summary.html" title="Package: models"><span class="label label-success">models</span></a>
+</div>
+
+<h2>
+
+
+Class
+
+ Response</h2>
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+
+	
+		
+		
+			
+		
+	
+	
+
+
+<!-- Inheritance Tree-->
+<pre style="background:white">lucee.Component
+    <img src="../resources/inherit.gif" alt="extended by ">models.Response
+</pre>
+
+
+
+	
+	
+
+
+
+
+
+
+
+<div id="class-hint">
+	<p>Copyright 2005-2007 ColdBox Framework by Luis Majano and Ortus Solutions, Corp
+www.ortussolutions.com
+HTTP Response model, spice up as needed and stored in the request scope</p>
+</div>
+
+
+<!-- Clas Attributes -->
+<div class="panel panel-info">
+	<div class="panel-heading"><strong>Class Attributes:</strong></div>
+		<div class="panel-body">
+		
+		
+			
+		
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				synchronized
+				
+				: false
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				accessors
+				
+				: true
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				persistent
+				
+				: false
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+		
+		
+	</div>
+</div>
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<a name="property_summary"><!-- --></a>
+<table class="table table-bordered table-hover">
+	<tr class="info">
+		<th align="left" colspan="5">
+			<strong>Property Summary</strong>
+		</th>
+	</tr>
+	<tr class="info">
+		<th align="left">
+			<strong>type</strong>
+		</th>
+		<th align="left">
+			<strong>property</strong>
+		</th>
+		<th align="left">
+			<strong>default</strong>
+		</th>
+		<th align="left">
+			<strong>serializable</strong>
+		</th>
+		<th align="left">
+			<strong>required</strong>
+		</th>
+	</tr>
+
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>boolean</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#binary()">binary</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+				<code>false</code>
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>boolean</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#cachedResponse()">cachedResponse</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+				<code>false</code>
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#contentType()">contentType</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#data()">data</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>boolean</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#error()">error</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+				<code>false</code>
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#format()">format</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+				<code>json</code>
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>array</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#headers()">headers</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#jsonCallback()">jsonCallback</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#jsonQueryFormat()">jsonQueryFormat</A></strong>
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JSON Only: This parameter can be a Boolean value that specifies how to serialize ColdFusion queries or a string with possible values row, column, or struct.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+				<code>true</code>
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#location()">location</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>array</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#messages()">messages</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>numeric</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#responsetime()">responsetime</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+				<code>0</code>
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>boolean</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#returnOnlyData()">returnOnlyData</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+				<code>true</code>
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>numeric</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#statusCode()">statusCode</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+				<code>200</code>
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#statusText()">statusText</A></strong>
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+				<code>OK</code>
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	</tr>
+</table>
+
+
+
+	
+	
+	<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+	<a name="constructor_summary"><!-- --></a>
+	<table class="table table-bordered table-hover">
+		<tr class="info">
+			<th align="left" colspan="2">
+				<strong>Constructor Summary</strong>
+			</th>
+		</tr>
+		<tr>
+			
+			<td>
+				<strong><a href="Response.html#init()">init</A></strong>()
+				<br>
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Constructor.
+				
+			</td>
+		</tr>
+	</table>
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<a name="method_summary"><!-- --></a>
+<table class="table table-bordered table-hover">
+	<tr class="info">
+		<th align="left" colspan="2">
+			<strong>Method Summary</strong>
+		</th>
+	</tr>
+
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#addHeader()">addHeader</A></strong>(string name, string value)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a header.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#addMessage()">addMessage</A></strong>(any message)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add some messages.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getBinary()">getBinary</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getCachedResponse()">getCachedResponse</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getContentType()">getContentType</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getData()">getData</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getDataPacket()">getDataPacket</A></strong>([boolean reset='false'])
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a standard response formatted data packet.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getError()">getError</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getFormat()">getFormat</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getHeaders()">getHeaders</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getJsonCallback()">getJsonCallback</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getJsonQueryFormat()">getJsonQueryFormat</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getLocation()">getLocation</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getMessages()">getMessages</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getResponsetime()">getResponsetime</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getReturnOnlyData()">getReturnOnlyData</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getStatusCode()">getStatusCode</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#getStatusText()">getStatusText</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setBinary()">setBinary</A></strong>(boolean binary)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setCachedResponse()">setCachedResponse</A></strong>(boolean cachedResponse)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setContentType()">setContentType</A></strong>(string contentType)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setData()">setData</A></strong>(any data)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setError()">setError</A></strong>(boolean error)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setFormat()">setFormat</A></strong>(string format)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setHeaders()">setHeaders</A></strong>(array headers)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setJsonCallback()">setJsonCallback</A></strong>(string jsonCallback)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setJsonQueryFormat()">setJsonQueryFormat</A></strong>(string jsonQueryFormat)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setLocation()">setLocation</A></strong>(string location)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setMessages()">setMessages</A></strong>(array messages)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setResponsetime()">setResponsetime</A></strong>(numeric responsetime)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setReturnOnlyData()">setReturnOnlyData</A></strong>(boolean returnOnlyData)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setStatusCode()">setStatusCode</A></strong>(numeric statusCode)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="Response.html#setStatusText()">setStatusText</A></strong>(string statusText)
+			<br>
+			
+		</td>
+	</tr>
+	
+</table>
+
+
+
+<a name="inherited_methods"><!-- --></a>
+
+
+	
+
+	
+
+	&nbsp;
+	<a name="methods_inherited_from_class_lucee.Component"><!-- --></a>
+	<table class="table table-hover table-bordered">
+		<tr class="info">
+			<th align="left">
+				<strong>Methods inherited from class <kbd>lucee.Component</kbd></strong>
+			</th>
+		</tr>
+		<tr>
+			<td>
+				
+				
+				
+
+				
+					<span class="label label-warning"><em>None</em></span>
+				
+			</td>
+		</tr>
+	</table>
+
+
+<hr>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+	<a name="constructor_detail"><!-- --></a>
+	<table class="table table-bordered">
+		<tr class="info">
+			<th colspan="1" align="left">
+				<strong>Constructor Detail</strong>
+			</th>
+		</tr>
+	</table>
+
+	<a name="init()"><!-- --></a><h3>
+	init</h3>
+	<kbd>public <strong>init</strong>()</kbd>
+
+	<br><br>
+
+	
+	<p>Constructor</p>
+	
+
+	
+	<hr>
+
+
+<!-- ============ PROPERTY DETAIL ========== -->
+
+	<a name="property_detail"><!-- --></a>
+	<table class="table table-bordered">
+		<tr class="info">
+			<th colspan="1" align="left">
+				<strong>Property Detail</strong>
+			</th>
+		</tr>
+	</table>
+
+	
+		
+		<a name="binary()"><!-- --></a>
+		<h3>binary</h3>
+
+		<kbd>
+			property boolean
+			<strong>binary</strong>
+			
+			= [false]
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="cachedResponse()"><!-- --></a>
+		<h3>cachedResponse</h3>
+
+		<kbd>
+			property boolean
+			<strong>cachedResponse</strong>
+			
+			= [false]
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="contentType()"><!-- --></a>
+		<h3>contentType</h3>
+
+		<kbd>
+			property string
+			<strong>contentType</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="data()"><!-- --></a>
+		<h3>data</h3>
+
+		<kbd>
+			property any
+			<strong>data</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="error()"><!-- --></a>
+		<h3>error</h3>
+
+		<kbd>
+			property boolean
+			<strong>error</strong>
+			
+			= [false]
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="format()"><!-- --></a>
+		<h3>format</h3>
+
+		<kbd>
+			property string
+			<strong>format</strong>
+			
+			= [json]
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="headers()"><!-- --></a>
+		<h3>headers</h3>
+
+		<kbd>
+			property array
+			<strong>headers</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="jsonCallback()"><!-- --></a>
+		<h3>jsonCallback</h3>
+
+		<kbd>
+			property string
+			<strong>jsonCallback</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="jsonQueryFormat()"><!-- --></a>
+		<h3>jsonQueryFormat</h3>
+
+		<kbd>
+			property string
+			<strong>jsonQueryFormat</strong>
+			
+			= [true]
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>JSON Only: This parameter can be a Boolean value that specifies how to serialize ColdFusion queries or a string with possible values row, column, or struct</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="location()"><!-- --></a>
+		<h3>location</h3>
+
+		<kbd>
+			property string
+			<strong>location</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="messages()"><!-- --></a>
+		<h3>messages</h3>
+
+		<kbd>
+			property array
+			<strong>messages</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="responsetime()"><!-- --></a>
+		<h3>responsetime</h3>
+
+		<kbd>
+			property numeric
+			<strong>responsetime</strong>
+			
+			= [0]
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="returnOnlyData()"><!-- --></a>
+		<h3>returnOnlyData</h3>
+
+		<kbd>
+			property boolean
+			<strong>returnOnlyData</strong>
+			
+			= [true]
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="statusCode()"><!-- --></a>
+		<h3>statusCode</h3>
+
+		<kbd>
+			property numeric
+			<strong>statusCode</strong>
+			
+			= [200]
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="statusText()"><!-- --></a>
+		<h3>statusText</h3>
+
+		<kbd>
+			property string
+			<strong>statusText</strong>
+			
+			= [OK]
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+
+
+
+
+
+
+
+
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<a name="method_detail"><!-- --></a>
+<table class="table table-bordered">
+	<tr class="info">
+		<th colspan="1" align="left">
+			<strong>Method Detail</strong>
+		</th>
+	</tr>
+</table>
+
+
+	
+	<a name="addHeader()"><!-- --></a>
+	<h3>
+		addHeader
+		
+	</h3>
+
+	<kbd>public any <strong>addHeader</strong>(string name, string value)</kbd>
+
+	<br><br>
+
+	
+		<p>Add a header</p>
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>name</code> - The header name ( e.g. "Content-Type" )</dd>
+		
+		<dd><code>value</code> - The header value ( e.g. "application/json" )</dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="addMessage()"><!-- --></a>
+	<h3>
+		addMessage
+		
+	</h3>
+
+	<kbd>public any <strong>addMessage</strong>(any message)</kbd>
+
+	<br><br>
+
+	
+		<p>Add some messages</p>
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>message</code> - Array or string of message to incorporate</dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getBinary()"><!-- --></a>
+	<h3>
+		getBinary
+		
+	</h3>
+
+	<kbd>public string <strong>getBinary</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getCachedResponse()"><!-- --></a>
+	<h3>
+		getCachedResponse
+		
+	</h3>
+
+	<kbd>public string <strong>getCachedResponse</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getContentType()"><!-- --></a>
+	<h3>
+		getContentType
+		
+	</h3>
+
+	<kbd>public string <strong>getContentType</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getData()"><!-- --></a>
+	<h3>
+		getData
+		
+	</h3>
+
+	<kbd>public string <strong>getData</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getDataPacket()"><!-- --></a>
+	<h3>
+		getDataPacket
+		
+	</h3>
+
+	<kbd>public any <strong>getDataPacket</strong>([boolean reset='false'])</kbd>
+
+	<br><br>
+
+	
+		<p>Returns a standard response formatted data packet</p>
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>reset</code> - Reset the 'data' element of the original data packet</dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getError()"><!-- --></a>
+	<h3>
+		getError
+		
+	</h3>
+
+	<kbd>public string <strong>getError</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getFormat()"><!-- --></a>
+	<h3>
+		getFormat
+		
+	</h3>
+
+	<kbd>public string <strong>getFormat</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getHeaders()"><!-- --></a>
+	<h3>
+		getHeaders
+		
+	</h3>
+
+	<kbd>public string <strong>getHeaders</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getJsonCallback()"><!-- --></a>
+	<h3>
+		getJsonCallback
+		
+	</h3>
+
+	<kbd>public string <strong>getJsonCallback</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getJsonQueryFormat()"><!-- --></a>
+	<h3>
+		getJsonQueryFormat
+		
+	</h3>
+
+	<kbd>public string <strong>getJsonQueryFormat</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getLocation()"><!-- --></a>
+	<h3>
+		getLocation
+		
+	</h3>
+
+	<kbd>public string <strong>getLocation</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getMessages()"><!-- --></a>
+	<h3>
+		getMessages
+		
+	</h3>
+
+	<kbd>public string <strong>getMessages</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getResponsetime()"><!-- --></a>
+	<h3>
+		getResponsetime
+		
+	</h3>
+
+	<kbd>public string <strong>getResponsetime</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getReturnOnlyData()"><!-- --></a>
+	<h3>
+		getReturnOnlyData
+		
+	</h3>
+
+	<kbd>public string <strong>getReturnOnlyData</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getStatusCode()"><!-- --></a>
+	<h3>
+		getStatusCode
+		
+	</h3>
+
+	<kbd>public string <strong>getStatusCode</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getStatusText()"><!-- --></a>
+	<h3>
+		getStatusText
+		
+	</h3>
+
+	<kbd>public string <strong>getStatusText</strong>()</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setBinary()"><!-- --></a>
+	<h3>
+		setBinary
+		
+	</h3>
+
+	<kbd>public any <strong>setBinary</strong>(boolean binary)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>binary</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setCachedResponse()"><!-- --></a>
+	<h3>
+		setCachedResponse
+		
+	</h3>
+
+	<kbd>public any <strong>setCachedResponse</strong>(boolean cachedResponse)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>cachedResponse</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setContentType()"><!-- --></a>
+	<h3>
+		setContentType
+		
+	</h3>
+
+	<kbd>public any <strong>setContentType</strong>(string contentType)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>contentType</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setData()"><!-- --></a>
+	<h3>
+		setData
+		
+	</h3>
+
+	<kbd>public any <strong>setData</strong>(any data)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>data</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setError()"><!-- --></a>
+	<h3>
+		setError
+		
+	</h3>
+
+	<kbd>public any <strong>setError</strong>(boolean error)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>error</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setFormat()"><!-- --></a>
+	<h3>
+		setFormat
+		
+	</h3>
+
+	<kbd>public any <strong>setFormat</strong>(string format)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>format</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setHeaders()"><!-- --></a>
+	<h3>
+		setHeaders
+		
+	</h3>
+
+	<kbd>public any <strong>setHeaders</strong>(array headers)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>headers</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setJsonCallback()"><!-- --></a>
+	<h3>
+		setJsonCallback
+		
+	</h3>
+
+	<kbd>public any <strong>setJsonCallback</strong>(string jsonCallback)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>jsonCallback</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setJsonQueryFormat()"><!-- --></a>
+	<h3>
+		setJsonQueryFormat
+		
+	</h3>
+
+	<kbd>public any <strong>setJsonQueryFormat</strong>(string jsonQueryFormat)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>jsonQueryFormat</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setLocation()"><!-- --></a>
+	<h3>
+		setLocation
+		
+	</h3>
+
+	<kbd>public any <strong>setLocation</strong>(string location)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>location</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setMessages()"><!-- --></a>
+	<h3>
+		setMessages
+		
+	</h3>
+
+	<kbd>public any <strong>setMessages</strong>(array messages)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>messages</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setResponsetime()"><!-- --></a>
+	<h3>
+		setResponsetime
+		
+	</h3>
+
+	<kbd>public any <strong>setResponsetime</strong>(numeric responsetime)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>responsetime</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setReturnOnlyData()"><!-- --></a>
+	<h3>
+		setReturnOnlyData
+		
+	</h3>
+
+	<kbd>public any <strong>setReturnOnlyData</strong>(boolean returnOnlyData)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>returnOnlyData</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setStatusCode()"><!-- --></a>
+	<h3>
+		setStatusCode
+		
+	</h3>
+
+	<kbd>public any <strong>setStatusCode</strong>(numeric statusCode)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>statusCode</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setStatusText()"><!-- --></a>
+	<h3>
+		setStatusText
+		
+	</h3>
+
+	<kbd>public any <strong>setStatusText</strong>(string statusText)</kbd>
+
+	<br><br>
+
+	
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>statusText</code></dd>
+		
+		</dl>
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+
+
+
+</body>
+</html>
+
