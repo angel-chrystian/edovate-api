@@ -3,42 +3,6 @@
 
 	// Default Action
 	function index(event,rc,prc){
-		var productoData = {
-      alimentacion = "",
-      altaNom = "",
-      arancel = "",
-      articulo = "Artículo de prueba",
-      categoria = 2,
-      codigo = "0101001",
-      codigoProveedor = "0101001",
-      composicion = "",
-      contenido = "",
-      descripcion = "",
-      ean = "",
-      fabricante = 67,
-      id = "",
-      localizacion = "",
-      maximo = 2000,
-      minimo = 0,
-      moneda = 2,
-      nom = "",
-      pais = "",
-      porcentajeArancel = 0,
-      precioProveedor = 25,
-      precioProveedorAnterior = 0,
-      sustituto = "",
-      unidad = "Pieza",
-      upc = "",
-      vencimientoNOM = ""
-    };
-		var Producto = EntityNew('Producto');
-		populateModel( model = Producto, memento = productoData, composeRelationships = true );
-		Producto.setCodigo( '0101001' );
-		var inicio = getTickCount();
-		vResults = validateModel( Producto );
-		var finalCount = getTickCount();
-		writedump( finalCount - inicio );
-		writedump( vResults.getAllErrors() );abort;
 	}
 
 /**
