@@ -79,12 +79,12 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.serv
       it( "Returns an empty struct when the contact is not found", function(){
         cacheRemoveAll('query');
         local.result = model.get(6549);
-        debug( local.result );
       });
 
       it( "Returns a Contact object", function(){
         cacheRemoveAll('query');
-        local.result = model.get(3537793);
+        local.result = model.get(3558332);
+        debug( local.result );
         expect( local.result ).toBeTypeOf( "component", "Result is not a Component" );
         expect(
           replace( getMetaData( local.result ).name, 'root.', '' )

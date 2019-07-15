@@ -40,7 +40,7 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 			});
 
 			it( "Returns all the contacts", function(){
-				var event = execute( route = "/contacts", renderResults = true );
+				var event = execute( route = "/v1/contacts", renderResults = true );
         var rc = event.getCollection();
         local.data = rc.cbox_render_data.data;
         local.content = rc.cbox_rendered_content;
@@ -61,7 +61,7 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
       });
 
       it( "Returns one contact", function(){
-        var event = execute( route = "/contacts/3559056000000", renderResults = true );
+        var event = execute( route = "/v1/contacts/3559056000000", renderResults = true );
         var rc = event.getCollection();
         local.data = rc.cbox_render_data.data;
         local.content = rc.cbox_rendered_content;

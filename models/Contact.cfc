@@ -11,21 +11,21 @@ component accessors="true"{
   property name="owner" type="string"  default="" hint="The contact owner";
   property name="created_on" type="string" hint="The time the contact was added to Edovate";
   property name="parent_id" type="string" hint="The entity id of the parent's relationship";
-  property name="first_name" type="string" hint="First name of the contact";
-  property name="last_name" type="string" hint="Last name of the contact";
-  property name="email" type="string" hint="Primary email";
-  property name="phone" type="string" hint="Primary phone";
-  property name="blc_username" type="string" hint="BLC Username (ext_field_2163)";
-  property name="blc_password" type="string" hint="BLC Password (ext_field_2164)";
-  property name="azure_id" type="string" hint="Azure ID (ext_field_2280)";
-  property name="azure_name" type="string" hint="Azure Username (ext_field_2278)";
-  property name="lsa_learning_style" type="string" hint="LSA learning style (ext_field_1872)";
-  property name="lsa_personality_style" type="string" hint="LSA personality style (ext_field_1871)";
-  property name="contact_tag" type="integer" hint="The contact tags representing the contact";
-  property name="enroll_start_date" type="string" hint="The current enrollment start date (ext_field_2111)";
-  property name="enroll_final_due_date" type="string" hint="The current enrollment final due date (ext_field_2114)";
-  property name="student_status" type="string" hint="The current enrollment status of the student (ext_field_1969)";
-  property name="billing_status" type="string" hint="The current payment status of this student (current, past due, etc)";
+  property name="first_name" type="string" default=""  hint="First name of the contact";
+  property name="last_name" type="string" default=""  hint="Last name of the contact";
+  property name="email" type="string" default="" hint="Primary email";
+  property name="phone" type="string" default="" hint="Primary phone";
+  property name="blc_username" type="string" default="" hint="BLC Username (ext_field_2163)";
+  property name="blc_password" type="string" default="" hint="BLC Password (ext_field_2164)";
+  property name="azure_id" type="string" default="" hint="Azure ID (ext_field_2280)";
+  property name="azure_name" type="string" default="" hint="Azure Username (ext_field_2278)";
+  property name="lsa_learning_style" type="string" default="" hint="LSA learning style (ext_field_1872)";
+  property name="lsa_personality_style" type="string" default="" hint="LSA personality style (ext_field_1871)";
+  property name="contact_tag" type="integer" default="" hint="The contact tags representing the contact";
+  property name="enroll_start_date" type="string" default=""  hint="The current enrollment start date (ext_field_2111)";
+  property name="enroll_final_due_date" type="string" default="" hint="The current enrollment final due date (ext_field_2114)";
+  property name="student_status" type="string" default="" hint="The current enrollment status of the student (ext_field_1969)";
+  property name="billing_status" type="string" default="" hint="The current payment status of this student (current, past due, etc)";
 
 	/**
 	 * Constructor

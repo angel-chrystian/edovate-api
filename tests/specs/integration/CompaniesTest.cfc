@@ -39,8 +39,8 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 				setup();
 			});
 
-			it( "Returns all the companies", function(){
-				var event = execute( route = "/companies", renderResults = true );
+			xit( "Returns all the companies", function(){
+				var event = execute( route = "/v1/companies", renderResults = true );
         var rc = event.getCollection();
         local.data = rc.cbox_render_data.data;
         local.content = rc.cbox_rendered_content;
@@ -62,10 +62,11 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
       });
 
       it( "Returns one company", function(){
-        var event = execute( route = "/companies/2195450", renderResults = true );
+        var event = execute( route = "/v1/companies/2070050", renderResults = true );
         var rc = event.getCollection();
         local.data = rc.cbox_render_data.data;
         local.content = rc.cbox_rendered_content;
+        debug( local.content );
         expect( rc.cbox_render_data.contentType ).toBe( 'application/json' );
         expect( local.data ).toBeTypeOf( 'struct' );
         expect( structIsEmpty( local.data ) ).toBeFalse();

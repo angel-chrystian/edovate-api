@@ -3,7 +3,7 @@
  *	Date: 6/29/2019
  *	Event handler for companies in the API.
  **/
-component extends="BaseHandler"{
+component extends="handlers.BaseHandler"{
 	property name="companyService" inject="services.companyService";
 
 	// OPTIONAL HANDLER PROPERTIES
@@ -23,14 +23,15 @@ component extends="BaseHandler"{
 	* Index
 	*/
 	any function index( event, rc, prc ){
+	  // Get the environment
 	  local.dev = getSetting( "environment" );
 
-	  // In Dev default to 5 rows top and struct format
-	  local.args = {
-      top = listFindNoCase( 'development,staging', local.dev ) ? 5 : 0,
-      asStruct = true
-    };
-    if( event.valueExists( 'top' ) ) local.args.top = rc.top;
+	  // By default limit to 20 results starting from row 1
+	  event.paramValue( 'limit', 20 );
+	  event.paramValue( 'offSet', 1 );
+
+	  local.args = { asStruct = true };
+	  structAppend( local.args, rc );
     local.result = companyService.get( argumentCollection = args );
 
     // Put the result in the response object
@@ -41,6 +42,7 @@ component extends="BaseHandler"{
  * Returns a Company if the companyID is provided
  **/
   public any function getCompany( event, rc, prc ){
+
     if( event.valueExists( 'companyID' ) && isNumeric( rc.companyID ) ){
     	local.args = {
         companyID = rc.companyID,

@@ -21,7 +21,8 @@ component accessors="true"{
 	property name="responsetime"	type="numeric"		default="0";
 	property name="cachedResponse" 	type="boolean"		default="false";
 	property name="headers" 		type="array";
-	property name="returnOnlyData" type="boolean" default="true";
+  property name="returnOnlyData" type="boolean" default="true";
+  property name="lowerCaseKeys" type="boolean" default="true";
 
 	/**
 	* Constructor
@@ -66,22 +67,69 @@ component accessors="true"{
 		return this;
 	}
 
-	/**
-	* Returns a standard response formatted data packet
-	* @reset Reset the 'data' element of the original data packet
-	*/
-	function getDataPacket( boolean reset=false ) {
-		var packet = {
-			"error" 		 = variables.error ? true : false,
-			"messages" 		 = variables.messages,
-			"data" 			 = variables.data
-		};
+  /**
+  * Returns a standard response formatted data packet
+  * @reset Reset the 'data' element of the original data packet
+  */
+  function getDataPacket( boolean reset=false ) {
+    /*local.data = {};
+    for( var key in variables.data ){
+      local.data[ "#lcase( key )#" ] = variables.data[ key ];
+    }*/
+    local.packet = {
+      "error"      = variables.error ? true : false,
+      "messages"     = variables.messages,
+      "data"       = variables.data
+    };
 
-		// Are we reseting the data packet
-		if( arguments.reset ){
-			packet.data = {};
-		}
+    if( this.getLowerCaseKeys() ){
+      if( isArray( local.packet.data ) ){
+      	// Convert array
+      	local.packet.data = arrayToLowerCase( local.packet.data );
+      }else if( isStruct( local.packet.data ) ){
+      	// Convert struct
+      	local.packet.data = structToLowerCase( local.packet.data );
+      }
+    }
 
-		return this.getReturnOnlyData() ? packet.data : packet;
-	}
+    // Are we reseting the data packet
+    if( arguments.reset ){
+      packet.data = {};
+    }
+
+    return this.getReturnOnlyData() ? local.packet.data : local.packet;
+  }
+
+/**
+ * Changes the keys of a structur to lower case
+ * @data  Structure which keys will be converted to lowercase
+ **/
+  public struct function structToLowerCase( required struct data ){
+    local.tempStt = {};
+    for( local.key in arguments.data ){
+    	local.lcKey = lCase( local.key );
+    	if( structKeyExists( arguments.data, local.key ) && isArray( arguments.data[ local.key ] ) ){
+    		local.tempStt[ local.lcKey ] = arrayToLowerCase( arguments.data[ local.key ] );
+    	}else if( isStruct( arguments.data[ local.key ] ) ){
+    		local.tempStt[ local.lcKey ] = structToLowerCase( arguments.data[ local.key ] );
+    	}else{
+    		local.tempStt[ local.lcKey ] = arguments.data[ local.key ];
+    	}
+    }
+    return local.tempStt;
+
+  }
+
+/**
+ * Changes the keys of a structur to lower case
+ * @data  Array which structure elements keys will be converted to lowercase
+ **/
+  public array function arrayToLowerCase( required array data ){
+    local.tempAry = [];
+    for( local.row in arguments.data ){
+    	local.tempAry.append( structToLowerCase( local.row ) );
+    }
+    return local.tempAry;
+  }
+
 }

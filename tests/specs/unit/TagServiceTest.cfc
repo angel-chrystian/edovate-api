@@ -28,15 +28,6 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.serv
 	function run(){
 
 		describe( "get() function", function(){
-			it( "Returns 35 object tags related to the default Company", function(){
-				cacheRemoveAll('query');
-				local.result = model.get(3536615);
-				expect( local.result ).toBeTypeOf( "array", "Result is not an array" );
-				expect( local.result.len() ).toBe( 35 );
-				expect( local.result[1] ).toBeTypeOf( 'component', "Result is not a structure" );
-				expect( local.result[1].getId() ).notToBe( "" );
-				expect( local.result[1].getName() ).notToBe( "" );
-			});
 
 			it( "Returns N top object tags related to the default Company", function(){
         cacheRemoveAll('query');
@@ -49,16 +40,6 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.serv
         expect( local.result[1].getName() ).notToBe( "" );
       });
 
-      it( "Returns 35 tags related to the default Company as structure", function(){
-        cacheRemoveAll('query');
-        local.result = model.get( companyID = 3536615, asStruct = true);
-        expect( local.result ).toBeTypeOf( "array", "Result is not an array" );
-        expect( local.result.len() ).toBe( 35 );
-        expect( local.result[1] ).toBeTypeOf( 'struct', "Result is not a structure" );
-        expect( local.result[1].id ).notToBe( "" );
-        expect( local.result[1].name ).notToBe( "" );
-      });
-
       it( "Returns N top tags related to the default Company as structure", function(){
         cacheRemoveAll('query');
         local.top = 6;
@@ -68,6 +49,46 @@ component extends="coldbox.system.testing.BaseModelTest" model="root.models.serv
         expect( local.result[1] ).toBeTypeOf( 'struct', "Result is not a structure" );
         expect( local.result[1].id ).notToBe( "" );
         expect( local.result[1].name ).notToBe( "" );
+      });
+
+      it( "Returns the default top tags related to the default Company as structure", function(){
+        cacheRemoveAll('query');
+        local.result = model.get( companyID = 3536615, asStruct = true );
+        expect( local.result ).toBeTypeOf( "array", "Result is not an array" );
+        expect( local.result.len() ).NottoBe( 0 );
+        expect( local.result[1] ).toBeTypeOf( 'struct', "Result is not a structure" );
+        expect( local.result[1].id ).notToBe( "" );
+        expect( local.result[1].name ).notToBe( "" );
+      });
+
+    });
+
+    describe( "getDataQuery() function", function(){
+
+    	it( "Throws an error when no tag[id], tag[name] or companyID is provided", function(){
+        cacheRemoveAll('query');
+
+        expect( function(){
+        	local.result = model.getDataQuery();
+        }).toThrow();
+      });
+
+      it( "Filters by tag[id]", function(){
+        cacheRemoveAll('query');
+
+        local.args["id"] = 1671;
+        local.result = model.getDataQuery( argumentCollection = local.args );
+        debug( local.result );
+        expect( local.result.recordCount ).notToBe( 0 );
+      });
+
+      it( "Filters by tag[name]", function(){
+        cacheRemoveAll('query');
+
+        local.args["name"] = "Partnership: BJU Press";
+        local.result = model.getDataQuery( argumentCollection = local.args );
+        debug( local.result );
+        expect( local.result.recordCount ).notToBe( 0 );
       });
 
     });

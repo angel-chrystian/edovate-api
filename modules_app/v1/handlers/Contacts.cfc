@@ -3,7 +3,7 @@
  *	Date: 6/29/2019
  *	Event handler for companies in the API.
  **/
-component extends="BaseHandler"{
+component extends="handlers.BaseHandler"{
 	property name="contactService" inject="services.contactService";
 
 	// OPTIONAL HANDLER PROPERTIES

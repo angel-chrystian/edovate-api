@@ -20,12 +20,12 @@ component extends="BaseService"  accessors="true" singleton="true"{
  * @top       Greater than 0 limits the query to the number if 0, returns all the records
  **/
   public any function get(
-  	required numeric companyID,
+  	numeric companyID,
   	boolean asStruct = false,
   	numeric top = 0
   ){
-    local.args = { top = arguments.top };
-    if( arguments.companyID > 0 ) local.args.companyID = arguments.companyID;
+    local.args = {};
+    structAppend( local.args, arguments );
     local.data = getDataQuery( argumentCollection = local.args );
     local.result = super.formatResult( local.data, arguments.asStruct );
     return local.result;
@@ -35,11 +35,21 @@ component extends="BaseService"  accessors="true" singleton="true"{
  * Performs the query
  * @companyID If ommited the function returns all the companies otherwise the company corresponding to the companyID
  **/
-  public query function getDataQuery( required numeric companyID, numeric orgID = this.getOrgID(), numeric top = 0 ){
+  public query function getDataQuery(
+  	numeric companyID = 0,
+  	numeric id = 0,
+  	string name = "",
+  	numeric orgID = this.getOrgID(),
+  	numeric top = 0
+  ){
+
+  	if( arguments.companyID == 0 && arguments.id == 0 && arguments.name == "" ){
+  		throw( 'Must provide companyID or id or name to proceed with the search' );
+  	}
+
     // Query parameters
     local.params = {
-      orgID = { value = arguments.orgID, cfsqltype="cf_sql_integer" },
-      companyID = { value = arguments.companyID, cfsqltype="cf_sql_integer" }
+      orgID = { value = arguments.orgID, cfsqltype="cf_sql_integer" }
     };
 
     // SQL construction
@@ -47,13 +57,38 @@ component extends="BaseService"  accessors="true" singleton="true"{
       writeoutput("
         select
           rt.RelationType as name,
-          rt.pk_RelationTypeId as id
+          rt.pk_RelationTypeId as id,
+          er.fk_RelatedEntityId as companyID
         from mb_EntityAccountTypeRelation atr
         INNER JOIN mb_EntityRelationship er ON er.pk_EntityRelationshipId = atr.fk_entityrelationshipID
         LEFT JOIN mb_relationtype rt ON rt.pk_RelationTypeId = atr.fk_relationtypeID
         where er.fk_coid = :orgID
-        and er.fk_RelatedEntityId = :companyID;
       ");
+
+      // Filter on companyID
+      if( arguments.companyID ){
+      	writeoutput("
+      	 and er.fk_RelatedEntityId = :companyID;
+      	");
+      	local.params.companyID = { value = arguments.companyID, cfsqltype="cf_sql_integer" };
+      }
+
+      // Filter on ID
+      if( arguments.id ){
+        writeoutput("
+         and rt.pk_RelationTypeId = :ID;
+        ");
+        local.params.ID = { value = arguments.ID, cfsqltype="cf_sql_integer" };
+      }
+
+      // Filter on name
+      if( len( arguments.name ) ){
+        writeoutput("
+         and rt.RelationType = :name;
+        ");
+        local.params.name = { value = arguments.name, cfsqltype="cf_sql_varchar" };
+      }
+
     }
 
     local.qryOptions = { cachedWithin = createTimeSpan( 0, 0, 20, 0 ) };

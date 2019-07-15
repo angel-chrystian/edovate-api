@@ -3,7 +3,7 @@
  *	Date: 6/27/2019
  *	Base service that provides functions to transform queries into objects
  **/
-component accessors="true" singleton="true"{
+component accessors="true" singleton="false"{
 
 	// Properties
 	property name="wirebox" inject="wirebox" hint="Injector object" ;
@@ -25,27 +25,40 @@ component accessors="true" singleton="true"{
  * @asStruct  If true the result is a structure otherwise is an object
  * @isList    List of columns to exclude while populating from the query
  * @exclude   Row of the query to use when populating the resource
+ * @offSet    The number of row that starts the results
+ * @pageSize  The total number of rows to return
  * @return    If isList is true, the function returns an array otherwise it returns an object or struct depending on asStruct parameter
  **/
   public any function formatResult(
   	required query dataQry,
   	boolean asStruct = false,
   	boolean isList = true,
-  	exclude = ''
+  	exclude = '',
+  	numeric offSet = 1,
+  	numeric pageSize = 20
   ){
+
   	if( !arguments.isList ){
+  		// Return only one resource
   		return getResource( argumentCollection = arguments );
   	}else{
+  		// Return an array of resources
   		local.result = [];
-  		for( var row in arguments.dataQry ){
+
+  		for( local.i = arguments.offSet; local.i <= arguments.pageSize; local.i++ ){
+
+  			if( local.i > arguments.dataQry.recordCount ) break;
+
   			local.Resource = getResource(
   				dataQry = arguments.dataQry,
   				asStruct = arguments.asStruct,
   				exclude = arguments.exclude,
-  				rowNumber = arguments.dataQry.currentRow
+  				rowNumber = local.i
   			);
+
   			local.result.append( local.Resource );
   		}
+
   		return local.result;
   	}
 
